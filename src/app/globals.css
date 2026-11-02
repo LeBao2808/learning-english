@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7fb;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --border: #e2e6ef;
+  --muted: #5b6477;
+  --primary: #3b4fd8;
+  --primary-foreground: #ffffff;
+  --primary-soft: #e8ebfd;
+  --highlight: #f59e0b;
+  --highlight-soft: #fef3c7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0e17;
+    --foreground: #e7eaf3;
+    --surface: #121624;
+    --surface-2: #181d2e;
+    --border: #252b3f;
+    --muted: #97a0b5;
+    --primary: #7b8cff;
+    --primary-foreground: #0b0e17;
+    --primary-soft: #1d2448;
+    --highlight: #fbbf24;
+    --highlight-soft: #3a2e0c;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  /* "accent" is the older name for primary, still used by the practice screens. */
+  --color-accent: var(--primary);
+  --font-sans: var(--font-sans-family);
+  --font-mono: var(--font-mono-family);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.7rem 1.25rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0.7rem 1.25rem;
+  font-weight: 600;
+  transition: border-color 0.15s;
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--primary);
+}
+.btn-secondary:disabled {
+  opacity: 0.45;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  transition: border-color 0.15s;
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.btn-ghost:disabled {
+  opacity: 0.4;
+}
+
+/* Rendered Markdown in AI replies */
+.markdown {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.markdown > * + * {
+  margin-top: 0.6em;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-weight: 600;
+  margin-top: 1em;
+}
+.markdown h3:first-child {
+  margin-top: 0;
+}
+.markdown ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.markdown ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.markdown li + li {
+  margin-top: 0.25em;
+}
+.markdown del {
+  color: #dc2626;
+}
+.markdown blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 0.75rem;
+  color: var(--muted);
+}
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+}
+.markdown code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
